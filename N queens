@@ -1,0 +1,28 @@
+class Solution(object):
+    def solveNQueens(self, n):
+        res = []
+        board = [["."] * n for i in range(n)]
+
+        def is_safe(row, col, board):
+            # top
+            for r in range(row):
+                if board[r][col] == "Q":
+                    return False
+
+            # top-left diagonal
+            r, c = row - 1, col - 1
+            while r >-1 and c >-1:
+                if board[r][col] == "Q":
+                    return False
+                r -= 1
+                c -= 1
+
+            # top-right diagonal
+            r, c = row - 1, col + 1
+            while r >= 0 and c < n:
+                if board[r][c] == "Q":
+                    return False
+                r -= 1
+                c += 1
+
+            return True
