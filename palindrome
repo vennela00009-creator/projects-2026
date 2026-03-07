@@ -1,0 +1,14 @@
+class Solution(object):
+    def isPalindrome(self, s):
+        new = ""
+
+        # keep only alphanumeric characters and convert to lowercase
+        for ch in s:
+            if ch.isalnum():
+                new += ch.lower()
+
+        # check palindrome
+        if new == new[::-1]:
+            return True
+        else:
+            return False
